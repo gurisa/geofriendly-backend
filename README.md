@@ -1,7 +1,10 @@
-# GeoFriendly
+# GeoFriendly Back-end
 Geological stuffs with easy to understand knowledge.
 
-## GeoFriendly Back-end
+# Tech Used
+- Flask (Python)
+- FlaskRest
+- FlaskJWT
 
 # Team Member
 - Raka Suryaardi Widjaja
