@@ -2,6 +2,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from flask_restful.reqparse import RequestParser
+from flask_jwt import JWT, jwt_required
 
 app = Flask(__name__)
 api = Api(app, prefix="/api/v0")
@@ -52,7 +53,7 @@ class User(Resource):
             users.append(args)
             return {"status": True, "code": 200, "message": "User updated", "data": {"user": args}}, 200
         return {"status": False, "code": 404, "message": "User not found", "data": {}}, 404    
-        
+
     def delete(self, id):
         user = getUser(id)
         if user:
