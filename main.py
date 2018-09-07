@@ -6,12 +6,12 @@ from flask_jwt import JWT, jwt_required
 
 app = Flask(__name__)
 api = Api(app, prefix="/api/v0")
+
+jwt = JWT(app, verify, identity)
 ## end of init ##
 
 ## begin of variable ##
-users = [
-    {"id": 1, "username": "raka", "password": "test", "name": "Raka Suryaardi Widjaja"}
-]
+users = []
 ## end of variable ##
 
 ## begin of method ##
