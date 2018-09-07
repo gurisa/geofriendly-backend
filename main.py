@@ -7,7 +7,7 @@ from flask_jwt import JWT, jwt_required
 app = Flask(__name__)
 api = Api(app, prefix="/api/v0")
 
-jwt = JWT(app, verify, identity)
+# jwt = JWT(app, verify, identity)
 ## end of init ##
 
 ## begin of variable ##
