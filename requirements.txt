@@ -1,0 +1,3 @@
+flask-restful==0.3.6
+flask-SQLAlchemy==2.3
+flask-jwt==0.3.2

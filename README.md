@@ -4,7 +4,6 @@ Geological stuffs with easy to understand knowledge.
 # Tech Used
 - Flask (Python)
 - Flask SQLAlchemy
-- Flask MySQL
 - Flask Restful
 - Flask JWT
 
@@ -16,7 +15,7 @@ Geological stuffs with easy to understand knowledge.
 # Installation
 - Install MySQL
 - Clone / import this repository
-- Import database from database folder
+- Import database from `db` folder
 - Customize credential configuration
 - Adjust hostname to match on Front-end configuration
 - Boom!
