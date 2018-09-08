@@ -3,9 +3,7 @@ Geological stuffs with easy to understand knowledge.
 
 # Tech Used
 - Flask (Python)
-- Flask SQLAlchemy
-- Flask Restful
-- Flask JWT
+- MySQL
 
 # Team Member
 - Raka Suryaardi Widjaja
