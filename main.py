@@ -1,9 +1,8 @@
 from flask import Flask
-from flask_restplus import Resource, Api
-from database import db_session
 from flask_sqlalchemy import SQLAlchemy
-from flask_jwt import JWT, jwt_required
-from api.user import user
+from flask_restplus import Resource, Api
+# from flask_jwt import JWT, jwt_required
+# from api.user import user
 # from model import Users
 
 app = Flask(__name__)
