@@ -11,7 +11,7 @@ class Users(object):
 
 user = Table('user', metadata,
     Column('id', Integer, primary_key=True),
-    Column('title', Text),
+    Column('username', Text),
     Column('name', Text)
 )
 
