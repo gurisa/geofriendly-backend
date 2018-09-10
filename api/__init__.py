@@ -1,5 +1,6 @@
 from flask_restplus import Api
-from .user import api as user
+from .user.route import api as user
+from .test.route import api as database
 
 api = Api(
     version='1', 
@@ -13,3 +14,4 @@ api = Api(
 )
 
 api.add_namespace(user, path='/api/v1/')
+api.add_namespace(database, path='/api/v1/')

@@ -1,13 +1,11 @@
 from flask_restplus import Namespace, Resource, Api, fields, reqparse
-from core.helper import db
+from ...core.helper import db
 
-db = SQLAlchemy()
+api = Namespace('Test', description='Tests operation available')
 
-ns = api.namespace('tests', description='Tests operation available')
-
-@ns.route('/database')
+@api.route('database')
 class Database(Resource):
-    @ns.doc('Testing database')
+    @api.doc('Testing database')
     def get(self):
         try:
             db.session.query("1").from_statement("SELECT 1").all()
