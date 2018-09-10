@@ -11,21 +11,14 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 class User extends Model implements AuthenticatableContract, AuthorizableContract {
     use Authenticatable, Authorizable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email',
-    ];
+    protected $table = "user";
+    protected $primaryKey = "id";
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-    ];
+    public $incrementing = TRUE;
+    public $timestamps = TRUE;
+    public $remember = TRUE;
+
+    protected $fillable = ['username', 'password', 'name'];
+    protected $guarded = [];
+    protected $hidden = ['password'];
 }

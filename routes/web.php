@@ -13,14 +13,14 @@
 
 $router->get('/', 'Controller@index');
 
-$router->group(['prefix' => 'api/v1/'], function () use ($router) {
+$router->group(['prefix' => 'api/v1'], function () use ($router) {
 
     $router->group([], function () use ($router) {
-        $router->group(['prefix' => 'users/[/{id}]'], function () use ($router) {
+        $router->group(['prefix' => 'users'], function () use ($router) {
             //hit users
-            $router->post('', 'UserController@create');
             $router->get('', 'UserController@all');
-            
+            $router->post('', 'UserController@create');
+                        
             //hit users/{id}
             $router->get('{id}', 'UserController@retrieve');
             $router->patch('{id}', 'UserController@update');

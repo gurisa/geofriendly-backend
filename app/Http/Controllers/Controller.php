@@ -7,6 +7,6 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 class Controller extends BaseController {
     
     public function index() {
-        return ['status' => true, 'message' => 'Hey world!', 'data'=> []];
+        return response()->json(['status' => true, 'message' => 'Hey world!', 'data'=> []], 200);
     }
 }
