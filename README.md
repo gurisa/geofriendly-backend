@@ -2,7 +2,7 @@
 Geological stuffs with easy to understand knowledge.
 
 # Tech Used
-- Flask (Python)
+- Express (NodeJS)
 - MySQL
 
 # Team Member
