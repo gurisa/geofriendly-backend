@@ -1,4 +1,6 @@
 from flask import Flask
+from flask_restplus import Resource
+
 from .api import api
 from .core.helper import db
 

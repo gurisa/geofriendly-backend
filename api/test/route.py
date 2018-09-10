@@ -1,9 +1,9 @@
-from flask_restplus import Namespace, Resource, Api, fields, reqparse
+from flask_restplus import Namespace, Resource
 from ...core.helper import db
 
-api = Namespace('Test', description='Tests operation available')
+api = Namespace('Test', description='Test operation available')
 
-@api.route('database')
+@api.route('tests/database')
 class Database(Resource):
     @api.doc('Testing database')
     def get(self):
