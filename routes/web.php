@@ -15,6 +15,8 @@ $router->get('/', 'Controller@index');
 
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
 
+    $router->get('', 'Controller@swagger');
+
     $router->group([], function () use ($router) {
         $router->group(['prefix' => 'auth'], function () use ($router) {
             $router->post('register', 'UserController@create');

@@ -1,0 +1,22 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "GeoFriendly Endpoint",
+        "contact": {
+            "email": "admin@gurisa.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "App\\Http\\Controllers\\Controller::index",
+                "responses": {
+                    "200": {
+                        "description": "Test"
+                    }
+                }
+            }
+        }
+    }
+}
