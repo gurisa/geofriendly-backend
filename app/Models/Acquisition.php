@@ -21,7 +21,7 @@ class Acquisition extends Model {
         return Acquisition::create([
             'name' => ucwords(strtolower($data['name'])),
             'description' => $data['description'],
-        ]);
+        ]); 
     }
 
     public static function change($id, $data) {
