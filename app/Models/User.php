@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
 class User extends Model implements AuthenticatableContract, AuthorizableContract {
     use Authenticatable, Authorizable;
 
@@ -25,7 +27,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public static function store($data) {
         return User::create([          
             'username' => strtolower($data['username']),
-            'password' => app('hash')->make($data['password']),
+            'password' => password_hash($data['password'], PASSWORD_BCRYPT),
             'name' => ucwords(strtolower($data['name']))
         ]);
     }
@@ -42,5 +44,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public static function erase($id) {
         return User::find($id)->delete();
+    }
+
+    public static function validate($input, $current) {
+        return password_verify($input, $current);
     }
 }
