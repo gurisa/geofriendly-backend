@@ -13,7 +13,7 @@ class Family extends Model {
     public $timestamps = FALSE;
     public $remember = FALSE;
 
-    protected $fillable = ['id', 'name', 'description', 'class_id'];
+    protected $fillable = ['id', 'name', 'description', 'classification_id'];
     protected $guarded = [];
     protected $hidden = [];
 
@@ -22,14 +22,14 @@ class Family extends Model {
             'id' => $data['id'],
             'name' => ucwords(strtolower($data['name'])),
             'description' => $data['description'],
-            'class_id' => $data['class_id'],
+            'classification_id' => $data['classification_id'],
         ]);
     }
 
     public static function change($id, $data) {
-        if ($class = Family::find($id)) {
-            if ($class->update(['name' => $data['name'], 'description'=> $data['description'], 'class_id'=> $data['class_id']])) {
-                return $class;
+        if ($family = Family::find($id)) {
+            if ($family->update(['name' => $data['name'], 'description'=> $data['description'], 'classification_id'=> $data['classification_id']])) {
+                return $family;
             }
             return false;
         }

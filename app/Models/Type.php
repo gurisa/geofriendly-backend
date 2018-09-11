@@ -4,31 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Classification extends Model {
+class Type extends Model {
 
-    protected $table = "classification";
+    protected $table = "type";
     protected $primaryKey = "id";
 
-    public $incrementing = FALSE;
+    public $incrementing = TRUE;
     public $timestamps = FALSE;
     public $remember = FALSE;
 
-    protected $fillable = ['id', 'name', 'description'];
+    protected $fillable = ['name', 'description'];
     protected $guarded = [];
     protected $hidden = [];
 
     public static function store($data) {
-        return Classification::create([
-            'id' => $data['description'],
+        return Type::create([
             'name' => ucwords(strtolower($data['name'])),
             'description' => $data['description'],
         ]);
     }
 
     public static function change($id, $data) {
-        if ($classification = Classification::find($id)) {
-            if ($classification->update(['name' => $data['name'], 'description'=> $data['description']])) {
-                return $classification;
+        if ($type = Type::find($id)) {
+            if ($type->update(['name' => $data['name'], 'description'=> $data['description']])) {
+                return $type;
             }
             return false;
         }
@@ -36,6 +35,6 @@ class Classification extends Model {
     }
 
     public static function erase($id) {
-        return Classification::find($id)->delete();
+        return Type::find($id)->delete();
     }
 }

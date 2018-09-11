@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Family;
+use App\Models\Acquisition;
 
-class FamilyController extends Controller {
+class AcquisitionController extends Controller {
 
     public function __construct() {
         
@@ -13,49 +13,47 @@ class FamilyController extends Controller {
     public function all() {
         return response()->json([
             'status' => true, 
-            'message' => 'Success retrieve all families', 
+            'message' => 'Success retrieve all acquisitions', 
             'code' => 200,
-            'data'=> Family::all()
+            'data'=> Acquisition::all()
         ]);
     }
 
     public function create(Request $request) {
         $this->validate($request, [
-            'id' => 'required|string|min:4|max:10',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
-            'classification_id' => 'required|string|min:4|max:10|unique:classification,id',
         ]);
 
         $data = $request->all();
-        if ($data = Family::store($data)) {
+        if ($data = Acquisition::store($data)) {
             return response()->json([
                 'status' => true, 
-                'message' => 'Success add new family', 
+                'message' => 'Success add new acquisition', 
                 'code' => 201,
                 'data'=> $data
             ]);
         }
         return response()->json([
             'status' => false, 
-            'message' => 'Failed to add new family', 
+            'message' => 'Failed to add new acquisition', 
             'code' => 500,
             'data'=> []
         ]);
     }
 
     public function retrieve($id) {
-        if ($id && $data = Family::find($id)) {
+        if ($id && $data = Acquisition::find($id)) {
             return response()->json([
                 'status' => true, 
-                'message' => 'Success retrieve family', 
+                'message' => 'Success retrieve acquisition', 
                 'code' => 200,
                 'data'=> $data
             ]);
         }
         return response()->json([
             'status' => false, 
-            'message' => 'Family not found',
+            'message' => 'Acquisition not found',
             'code' => 404, 
             'data'=> []
         ]);
@@ -63,23 +61,21 @@ class FamilyController extends Controller {
 
     public function update(Request $request, $id) {
         $this->validate($request, [            
-            'id' => 'required|string|min:4|max:10',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
-            'classification_id' => 'required|string|min:4|max:10|unique:classification,id',
         ]);
         $data = $request->all();
-        if ($id && $data = Family::change($id, $data)) {
+        if ($id && $data = Acquisition::change($id, $data)) {
             return response()->json([
                 'status' => true, 
-                'message' => 'Success update family',
+                'message' => 'Success update acquisition',
                 'code' => 200, 
                 'data'=> $data
             ]);
         }
         return response()->json([            
             'status' => false, 
-            'message' => 'Failed update family', 
+            'message' => 'Failed update acquisition', 
             'code' => 500,
             'data'=> []
         ]);
@@ -87,24 +83,24 @@ class FamilyController extends Controller {
 
     public function delete($id) {
         if ($id) {
-            if ($data = Family::erase($id)) {
+            if ($data = Acquisition::erase($id)) {
                 return response()->json([
                     'status' => true, 
-                    'message' => 'Success delete family',
+                    'message' => 'Success delete acquisition',
                     'code' => 200, 
                     'data'=> []
                 ]);
             }
             return response()->json([            
                 'status' => false, 
-                'message' => 'Failed delete family', 
+                'message' => 'Failed delete acquisition', 
                 'code' => 500,
                 'data'=> []
             ]);
         }
         return response()->json([
             'status' => false, 
-            'message' => 'Family not found',
+            'message' => 'Acquisition not found',
             'code' => 404, 
             'data'=> []
         ]);
