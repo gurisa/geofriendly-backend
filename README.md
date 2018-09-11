@@ -2,7 +2,7 @@
 Geological stuffs with easy to understand knowledge.
 
 # Tech Used
-- Express (NodeJS)
+- Lumen (PHP)
 - MySQL
 
 # Team Member

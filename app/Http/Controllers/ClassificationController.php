@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Classification;
 
-class UserController extends Controller {
+class ClassificationController extends Controller {
 
     public function __construct() {
         
@@ -13,48 +13,48 @@ class UserController extends Controller {
     public function all() {
         return response()->json([
             'status' => true, 
-            'message' => 'Success retrieve all users', 
+            'message' => 'Success retrieve all classifications', 
             'code' => 200,
-            'data'=> User::all()
+            'data'=> Classification::all()
         ]);
     }
 
     public function create(Request $request) {
-        $this->validate($request, [            
+        $this->validate($request, [
+            'id' => 'required|string|min:4|max:10',
             'name' => 'required|string|min:4|max:50',
-            'username' => 'required|string|min:6|max:15|regex:/^[A-Za-z0-9]+$/|unique:user',
-            'password' => 'required|string|between:6,20',
+            'description' => 'required|string|min:4|max:200',
         ]);
 
         $data = $request->all();
-        if ($data = User::store($data)) {
+        if ($data = Classification::store($data)) {
             return response()->json([
                 'status' => true, 
-                'message' => 'Success add new user', 
+                'message' => 'Success add new classification', 
                 'code' => 201,
                 'data'=> $data
             ]);
         }
         return response()->json([
             'status' => false, 
-            'message' => 'Failed to add new user', 
+            'message' => 'Failed to add new classification', 
             'code' => 500,
             'data'=> []
         ]);
     }
 
     public function retrieve($id) {
-        if ($id && $data = User::find($id)) {
+        if ($id && $data = Classification::find($id)) {
             return response()->json([
                 'status' => true, 
-                'message' => 'Success retrieve user', 
+                'message' => 'Success retrieve classification', 
                 'code' => 200,
                 'data'=> $data
             ]);
         }
         return response()->json([
             'status' => false, 
-            'message' => 'User not found',
+            'message' => 'Classification not found',
             'code' => 404, 
             'data'=> []
         ]);
@@ -63,20 +63,20 @@ class UserController extends Controller {
     public function update(Request $request, $id) {
         $this->validate($request, [            
             'name' => 'required|string|min:4|max:50',
-            'password' => 'required|string|between:6,20',
+            'description' => 'required|string|min:4|max:200',
         ]);
         $data = $request->all();
-        if ($id && $data = User::change($id, $data)) {
+        if ($id && $data = Classification::change($id, $data)) {
             return response()->json([
                 'status' => true, 
-                'message' => 'Success update user',
+                'message' => 'Success update classification',
                 'code' => 200, 
                 'data'=> $data
             ]);
         }
         return response()->json([            
             'status' => false, 
-            'message' => 'Failed update user', 
+            'message' => 'Failed update classification', 
             'code' => 500,
             'data'=> []
         ]);
@@ -84,24 +84,24 @@ class UserController extends Controller {
 
     public function delete($id) {
         if ($id) {
-            if ($data = User::erase($id)) {
+            if ($data = Classification::erase($id)) {
                 return response()->json([
                     'status' => true, 
-                    'message' => 'Success delete user',
+                    'message' => 'Success delete classification',
                     'code' => 200, 
                     'data'=> []
                 ]);
             }
             return response()->json([            
                 'status' => false, 
-                'message' => 'Failed delete user', 
+                'message' => 'Failed delete classification', 
                 'code' => 500,
                 'data'=> []
             ]);
         }
         return response()->json([
             'status' => false, 
-            'message' => 'User not found',
+            'message' => 'Classification not found',
             'code' => 404, 
             'data'=> []
         ]);
