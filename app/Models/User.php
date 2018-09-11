@@ -10,6 +10,17 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
+/**
+ * @OA\Schema(
+ *   schema="User",
+ *   @OA\Property(
+ *     property="id", type="integer"
+ *   ),
+ *   @OA\Property(
+ *     property="username", type="string", minimum=4, maximum=20
+ *   )
+ * )
+ */
 class User extends Model implements AuthenticatableContract, AuthorizableContract {
     use Authenticatable, Authorizable;
 

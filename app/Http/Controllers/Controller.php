@@ -8,9 +8,18 @@ use Laravel\Lumen\Routing\Controller as BaseController;
  * @OA\Info(
  * title="GeoFriendly Endpoint", 
  * version="1.0.0",
+ * description="Geological stuffs",
  *  @OA\Contact(
  *   email="admin@gurisa.com"
  *  )
+ * ),
+ * @OA\Server(
+ *  description="Endpoint",
+ *  url="https://geofriendly.gurisa.com/api/v1/"
+ * ),
+ * @OA\ExternalDocumentation(
+ *  description="More stuffs",
+ *  url="https://gurisa.com"
  * )
  */
 

@@ -2,11 +2,18 @@
     "openapi": "3.0.0",
     "info": {
         "title": "GeoFriendly Endpoint",
+        "description": "Geological stuffs",
         "contact": {
             "email": "admin@gurisa.com"
         },
         "version": "1.0.0"
     },
+    "servers": [
+        {
+            "url": "https://geofriendly.gurisa.com/api/v1/",
+            "description": "Endpoint"
+        }
+    ],
     "paths": {
         "/": {
             "get": {
@@ -18,5 +25,26 @@
                 }
             }
         }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "username": {
+                        "type": "string",
+                        "maximum": 20,
+                        "minimum": 4
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "More stuffs",
+        "url": "https://gurisa.com"
     }
 }
