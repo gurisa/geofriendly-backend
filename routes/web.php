@@ -26,6 +26,24 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
             $router->patch('{id}', 'UserController@update');
             $router->delete('{id}', 'UserController@delete');
         });
+
+        $router->group(['prefix' => 'classifications'], function () use ($router) {
+            $router->get('', 'ClassificationController@all');
+            $router->post('', 'ClassificationController@create');
+
+            $router->get('{id}', 'ClassificationController@retrieve');
+            $router->patch('{id}', 'ClassificationController@update');
+            $router->delete('{id}', 'ClassificationController@delete');
+        });
+
+        $router->group(['prefix' => 'families'], function () use ($router) {
+            $router->get('', 'FamilyController@all');
+            $router->post('', 'FamilyController@create');
+
+            $router->get('{id}', 'FamilyController@retrieve');
+            $router->patch('{id}', 'FamilyController@update');
+            $router->delete('{id}', 'FamilyController@delete');
+        });
     });
 
 });
