@@ -200,6 +200,6 @@ return [
     |--------------------------------------------------------------------------
      */
     'constants' => [
-        'SWAGGER_LUME_CONST_HOST' => env('SWAGGER_LUME_CONST_HOST', 'https://geofriendly.gurisa.com'),
+        'SWAGGER_LUME_CONST_HOST' => env('SWAGGER_LUME_CONST_HOST', 'https://g3ofriendly.gurisa.com'),
     ],
 ];

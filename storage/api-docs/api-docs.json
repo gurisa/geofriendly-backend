@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "https://geofriendly.gurisa.com/api/v1/",
+            "url": "https://g3ofriendly.gurisa.com/api/v1/",
             "description": "Endpoint"
         }
     ],

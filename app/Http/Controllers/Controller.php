@@ -15,7 +15,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
  * ),
  * @OA\Server(
  *  description="Endpoint",
- *  url="https://geofriendly.gurisa.com/api/v1/"
+ *  url="https://g3ofriendly.gurisa.com/api/v1/"
  * ),
  * @OA\ExternalDocumentation(
  *  description="More stuffs",
