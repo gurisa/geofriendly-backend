@@ -37,8 +37,6 @@ $app->configure('swagger-lume');
 |
 */
 
-define("API_HOST", (app()->environment('production')) ? "https://g3ofriendly.gurisa.com/api/v1" : "http://geofriendly.local/api/v1");
-
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
@@ -79,6 +77,8 @@ $app->routeMiddleware([
 | totally optional, so you are not required to uncomment this line.
 |
 */
+
+define("API_HOST", (app()->environment('local')) ? "http://geofriendly.local/api/v1" : "https://g3ofriendly.gurisa.com/api/v1");
 
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
