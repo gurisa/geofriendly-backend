@@ -37,6 +37,8 @@ $app->configure('swagger-lume');
 |
 */
 
+define("API_HOST", (app()->environment('production')) ? "https://g3ofriendly.gurisa.com/api/v1" : "http://geofriendly.local/api/v1");
+
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
