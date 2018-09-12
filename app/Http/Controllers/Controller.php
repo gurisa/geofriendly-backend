@@ -29,6 +29,7 @@ class Controller extends BaseController {
     /**
      * @OA\Get(
      *  path="/",
+     *  tags={"Test"},
      *  @OA\Response(
      *   response="200", 
      *   description="Test"

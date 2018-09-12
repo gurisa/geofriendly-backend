@@ -14,6 +14,7 @@ class UserController extends Controller {
      * @OA\Get(
      *   path="/users",
      *   description="Retrieve all users",
+     *   tags={"User"},
      *   @OA\Parameter(
      *         description="JWT Token", in="query", name="token", required=true,
      *         @OA\Schema(type="string")
@@ -43,6 +44,7 @@ class UserController extends Controller {
      * @OA\Post(
      *     path="/users",
      *     description="Creates new user",
+     *     tags={"User"},
      *     @OA\Parameter(
      *         description="JWT Token", in="query", name="token", required=true,
      *         @OA\Schema(type="string")
@@ -91,6 +93,7 @@ class UserController extends Controller {
      * @OA\Get(
      *     path="/users/{id}",
      *     description="Retrieve user",
+     *     tags={"User"},
      *     @OA\Parameter(
      *         description="User ID", in="path", name="id", required=true,
      *         @OA\Schema(type="integer", format="int64")
@@ -132,6 +135,7 @@ class UserController extends Controller {
      * @OA\Patch(
      *     path="/users/{id}",
      *     description="Update new user",
+     *     tags={"User"},
      *     @OA\Parameter(
      *         description="User ID", in="path", name="id", required=true,
      *         @OA\Schema(type="integer", format="int64")
@@ -182,6 +186,7 @@ class UserController extends Controller {
      * @OA\Delete(
      *     path="/users/{id}",
      *     description="Delete user",
+     *     tags={"User"},
      *     @OA\Parameter(
      *         description="User ID", in="path", name="id", required=true,
      *         @OA\Schema(type="integer", format="int64")

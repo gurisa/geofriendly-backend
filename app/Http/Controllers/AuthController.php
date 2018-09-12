@@ -13,6 +13,7 @@ class AuthController extends Controller {
      * @OA\Post(
      *     path="/auth/register",
      *     description="Register new user",
+	 * 	   tags={"Authentication"},
      *     @OA\RequestBody(
      *         description="User data", required=true,
      *         @OA\MediaType(mediaType="multipart/form-data", @OA\Schema(ref="#/components/schemas/UserNew"))
@@ -34,6 +35,7 @@ class AuthController extends Controller {
 	 * @OA\Post(
 	 *     path="/auth/login",
 	 *     description="Login",
+	 * 	   tags={"Authentication"},
 	 *     @OA\RequestBody(
 	 *         description="User credential", required=true,
 	 *         @OA\MediaType(mediaType="multipart/form-data", @OA\Schema(ref="#/components/schemas/UserLogin"))
