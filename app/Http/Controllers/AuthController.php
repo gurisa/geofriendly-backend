@@ -9,6 +9,47 @@ use Firebase\JWT\ExpiredException;
 
 class AuthController extends Controller {
 
+    /**
+     * @OA\Post(
+     *     path="/auth/register",
+     *     description="Register new user",
+     *     @OA\RequestBody(
+     *         description="User data", required=true,
+     *         @OA\MediaType(mediaType="multipart/form-data", @OA\Schema(ref="#/components/schemas/UserNew"))
+     *     ),
+     *     @OA\Response(
+     *        response=200,
+     *        description="User data",
+     *        @OA\JsonContent(
+     *         @OA\Property(property="status", type="boolean"),
+     *         @OA\Property(property="message", type="string"),
+     *         @OA\Property(property="code", type="integer"),
+     *         @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/User"))
+     *        )
+     *     )
+     * )
+     */
+
+	/**
+	 * @OA\Post(
+	 *     path="/auth/login",
+	 *     description="Login",
+	 *     @OA\RequestBody(
+	 *         description="User credential", required=true,
+	 *         @OA\MediaType(mediaType="multipart/form-data", @OA\Schema(ref="#/components/schemas/UserLogin"))
+	 *     ),
+	 *     @OA\Response(
+	 *        response=200,
+	 *        description="Credential detail",
+	 *        @OA\JsonContent(
+	 *         @OA\Property(property="status", type="boolean"),
+	 *         @OA\Property(property="message", type="string"),
+	 *         @OA\Property(property="code", type="integer"),
+	 *         @OA\Property(property="data", ref="#/components/schemas/UserCredential")
+	 *        )
+	 *     )
+	 * )
+	 */
 	public function login(Request $request) {
 		$this->validate($request, [
 			'username' => 'required|string|regex:/^[A-Za-z0-9]+$/',

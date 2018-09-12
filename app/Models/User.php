@@ -18,6 +18,72 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  *   ),
  *   @OA\Property(
  *     property="username", type="string", minimum=4, maximum=20
+ *   ),
+ *   @OA\Property(
+ *     property="password", type="string", minimum=6, maximum=20, format="password"
+ *   ),
+ *   @OA\Property(
+ *     property="name", type="string", minimum=6, maximum=50
+ *   ),
+ *   @OA\Property(
+ *     property="created_at", type="string", format="date-time"
+ *   ),
+ *   @OA\Property(
+ *     property="updated_at", type="string", format="date-time"
+ *   )
+ * )
+ */
+
+ /**
+ * @OA\Schema(
+ *   schema="UserNew",
+ *   @OA\Property(
+ *     property="username", type="string", minimum=4, maximum=20
+ *   ),
+ *   @OA\Property(
+ *     property="password", type="string", minimum=6, maximum=20, format="password"
+ *   ),
+ *   @OA\Property(
+ *     property="name", type="string", minimum=6, maximum=50
+ *   ),
+ * )
+ */
+
+ /**
+ * @OA\Schema(
+ *   schema="UserUpdate",
+ *   @OA\Property(
+ *     property="password", type="string", minimum=6, maximum=20, format="password"
+ *   ),
+ *   @OA\Property(
+ *     property="name", type="string", minimum=6, maximum=50
+ *   ),
+ * )
+ */
+
+ /**
+ * @OA\Schema(
+ *   schema="UserLogin",
+ *   @OA\Property(
+ *     property="username", type="string", minimum=4, maximum=20
+ *   ),
+ *   @OA\Property(
+ *     property="password", type="string", minimum=6, maximum=20, format="password"
+ *   )
+ * )
+ */
+
+ /**
+ * @OA\Schema(
+ *   schema="UserCredential",
+ *   @OA\Property(
+ *     property="issued", type="integer"
+ *   ),
+ *   @OA\Property(
+ *     property="expired", type="integer"
+ *   ),
+ *   @OA\Property(
+ *     property="token", type="string"
  *   )
  * )
  */
