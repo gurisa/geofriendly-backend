@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use Exception;
+use Firebase\JWT\JWT;
+use Firebase\JWT\ExpiredException;
 
 /**
  * @OA\Schema(
@@ -125,5 +127,28 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public static function validate($input, $current) {
         return password_verify($input, $current);
+    }
+
+    public static function decode($token, $key, $algorithm) {
+        try {
+            $credentials = JWT::decode($token, env('JWT_SECRET'), ['HS256']);
+        } 
+        catch(ExpiredException $e) {
+            return response()->json([
+                'status' => false,
+				'message' => 'Provided token is expired.',
+				'code' => 400,
+				'data' => $e,
+            ]);
+        } 
+        catch(Exception $e) {
+            return response()->json([
+                'status' => false,
+				'message' => 'An error while decoding token.',
+				'code' => 400,
+				'data' => $e,
+            ]);
+        }
+        return User::find($credentials->sub);
     }
 }

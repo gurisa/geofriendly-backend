@@ -32,6 +32,7 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
             $router->post('', 'UserController@create');
                         
             //hit users/{id}
+            $router->get('me', 'UserController@me');
             $router->get('{id}', 'UserController@retrieve');
             $router->patch('{id}', 'UserController@update');
             $router->delete('{id}', 'UserController@delete');

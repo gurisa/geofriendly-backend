@@ -11,7 +11,7 @@ use App\Models\User;
 class JwtMiddleware {
 
     public function handle($request, Closure $next, $guard = null) {
-        $token = $request->get('token');        
+        $token = $request->get('token');
         if(!$token) {
             return response()->json([
                 'status' => false,

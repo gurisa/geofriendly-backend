@@ -40,6 +40,38 @@ class UserController extends Controller {
         ]);
     }
 
+     /**
+     * @OA\Get(
+     *     path="/users/me",
+     *     description="Retrieve user data",
+     *     tags={"User"},
+     *     @OA\Parameter(
+     *         description="JWT Token", in="query", name="token", required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="User data",
+     *         @OA\JsonContent(
+     *          @OA\Property(property="status", type="boolean"),
+     *          @OA\Property(property="message", type="string"),
+     *          @OA\Property(property="code", type="integer"),
+     *          @OA\Property(property="data", ref="#/components/schemas/User")
+     *        )
+     *     )
+     * )
+     */
+
+    public function me(Request $request) {
+        $token = $request->get('token');
+        return response()->json([
+            'status' => true, 
+            'message' => 'Success retrieve user data', 
+            'code' => 200,
+            'data'=> User::decode($token, env('JWT_SECRET'), ['HS256'])
+        ]);
+    }
+
     /**
      * @OA\Post(
      *     path="/users",
