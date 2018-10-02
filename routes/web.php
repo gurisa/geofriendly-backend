@@ -11,13 +11,14 @@
 |
 */
 
-$router->get('', 'Controller@index');
-
-$router->group(['prefix' => 'api/v1'], function () use ($router) {
-
+$router->group(['middleware' => 'cors'], function () use ($router) {
     $router->get('', 'Controller@index');
 
-    $router->group([], function () use ($router) {
+    $router->group(['prefix' => 'api/v1'], function () use ($router) {
+        $router->get('', 'Controller@index');
+    });
+    
+    $router->group(['prefix' => 'api/v1'], function () use ($router) {
         $router->group(['prefix' => 'auth'], function () use ($router) {
             $router->post('register', 'UserController@create');
             $router->post('login', 'AuthController@login');
@@ -25,7 +26,7 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
         });
     });
 
-    $router->group(['middleware' => 'jwt'], function () use ($router) {
+    $router->group(['prefix' => 'api/v1', 'middleware' => 'jwt'], function () use ($router) {
         $router->group(['prefix' => 'users'], function () use ($router) {
             //hit users
             $router->get('', 'UserController@all');
