@@ -11,7 +11,7 @@
 |
 */
 
-$router->group(['middleware' => 'cors'], function () use ($router) {
+$router->group(['middleware' => 'cors'], function () use ($router) { 
     $router->get('', 'Controller@index');
 
     $router->group(['prefix' => 'api/v1'], function () use ($router) {
