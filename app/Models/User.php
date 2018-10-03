@@ -103,6 +103,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $guarded = [];
     protected $hidden = ['password'];
 
+    public static function retrieve($user) {
+        return User::where('id', '=', $user)->orWhere('username', '=', $user)->first();
+    }
+
     public static function store($data) {
         return User::create([          
             'username' => strtolower($data['username']),

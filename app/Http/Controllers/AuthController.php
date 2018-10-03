@@ -74,6 +74,7 @@ class AuthController extends Controller {
 				'message' => 'Login success',
 				'code' => 200,
 				'data' => (object) [
+					'user' => User::retrieve($user->id),
 					'token' => $this->jwt($user)
 				]
 			]);
@@ -100,6 +101,8 @@ class AuthController extends Controller {
 		return (object) [
 			'issued' => $payload['iat'],
 			'expired' => $payload['exp'],
+			'issued_at' => date("Y-m-d H:i:s", $payload['iat']),
+			'expired_at' => date("Y-m-d H:i:s", $payload['exp']),
 			'token' => JWT::encode($payload, env('JWT_SECRET'))
 		];
 	}
