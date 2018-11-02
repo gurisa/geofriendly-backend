@@ -28,11 +28,9 @@ $router->group(['middleware' => 'cors'], function () use ($router) {
 
     $router->group(['prefix' => 'api/v1', 'middleware' => 'jwt'], function () use ($router) {
         $router->group(['prefix' => 'users'], function () use ($router) {
-            //hit users
             $router->get('', 'UserController@all');
             $router->post('', 'UserController@create');
-                        
-            //hit users/{id}
+
             $router->get('me', 'UserController@me');
             $router->get('{id}', 'UserController@retrieve');
             $router->patch('{id}', 'UserController@update');
@@ -67,6 +65,11 @@ $router->group(['middleware' => 'cors'], function () use ($router) {
         });
 
         $router->group(['prefix' => 'collections'], function () use ($router) {
+            $router->get('export', 'CollectionUploadController@export');
+            $router->get('import/{id}', 'CollectionUploadController@import');
+            $router->post('upload', 'CollectionUploadController@create');
+
+
             $router->get('', 'CollectionController@all');
             $router->post('', 'CollectionController@create');
 

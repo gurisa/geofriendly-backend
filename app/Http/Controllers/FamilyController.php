@@ -24,14 +24,14 @@ class FamilyController extends Controller {
             'id' => 'required|string|min:4|max:10',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
-            'classification_id' => 'required|string|min:4|max:10|unique:classification,id',
+            'classification_id' => 'required|exists:classification,id',
         ]);
 
         $data = $request->all();
         if ($data = Family::store($data)) {
             return response()->json([
                 'status' => true, 
-                'message' => 'Success add new family', 
+                'message' => 'Success add new family',
                 'code' => 201,
                 'data'=> $data
             ]);
@@ -66,7 +66,7 @@ class FamilyController extends Controller {
             'id' => 'required|string|min:4|max:10',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
-            'classification_id' => 'required|string|min:4|max:10|unique:classification,id',
+            'classification_id' => 'required|exists:classification,id',
         ]);
         $data = $request->all();
         if ($id && $data = Family::change($id, $data)) {

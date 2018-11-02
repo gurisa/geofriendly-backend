@@ -23,9 +23,9 @@ class MapController extends Controller {
         $this->validate($request, [
             'code' => 'required|string|min:4|max:20',
             'name' => 'required|string|min:4|max:50',
-            'island_id' => 'required|string|min:4|max:20|unique:island,id',
-            'scale_id' => 'required|integer|size:10|unique:scale,id',
-            'type_id' => 'required|integer|size:10|unique:type,id',
+            'island_id' => 'required|exists:island,id',
+            'scale_id' => 'required|exists:scale,id',
+            'type_id' => 'required|exists:type,id',
         ]);
 
         $data = $request->all();
@@ -66,9 +66,9 @@ class MapController extends Controller {
         $this->validate($request, [            
             'code' => 'required|string|min:4|max:20',
             'name' => 'required|string|min:4|max:50',
-            'island_id' => 'required|string|min:4|max:20|unique:island,id',
-            'scale_id' => 'required|integer|size:10|unique:scale,id',
-            'type_id' => 'required|integer|size:10|unique:type,id',
+            'island_id' => 'required|exists:island,id',
+            'scale_id' => 'required|exists:scale,id',
+            'type_id' => 'required|exists:type,id',
         ]);
         $data = $request->all();
         if ($id && $data = Map::change($id, $data)) {

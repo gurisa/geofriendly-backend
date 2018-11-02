@@ -23,7 +23,7 @@ class DrawerController extends Controller {
         $this->validate($request, [
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
-            'rack_id' => 'required|integer|size:10|unique:rack,id',
+            'rack_id' => 'required|exists:rack,id',
         ]);
 
         $data = $request->all();
@@ -64,7 +64,7 @@ class DrawerController extends Controller {
         $this->validate($request, [            
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
-            'rack_id' => 'required|integer|size:10|unique:rack,id',
+            'rack_id' => 'required|exists:rack,id',
         ]);
         $data = $request->all();
         if ($id && $data = Drawer::change($id, $data)) {

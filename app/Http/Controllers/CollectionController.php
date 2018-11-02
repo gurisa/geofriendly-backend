@@ -7,8 +7,8 @@ use App\Models\Collection;
 class CollectionController extends Controller {
 
     protected $rule = [
-        'registration' => 'required|string|min:4|max:50|unqiue:collection',
-        'inventory' => 'required|string|min:4|max:50|unqiue:collection',
+        'registration' => 'required|unique:collection,registration',
+        'inventory' => 'required|unique:collection,inventory',
         'code' => 'required|string|min:4|max:100',
         'name' => 'required|string|min:4|max:200',
 
@@ -30,12 +30,12 @@ class CollectionController extends Controller {
         'description' => 'string|min:4|max:200',
         'photo' => 'string|min:4|max:200',
 
-        'family_id' => 'required|string|max:10|unqiue:family,id',
-        'age_id' => 'required|integer|size:10|unqiue:age,id',
-        'drawer_id' => 'required|integer|size:10|unqiue:drawer,id',
-        'map_id' => 'required|integer|size:10|unqiue:map,id',
-        'acquisition_id' => 'required|integer|size:10|unqiue:acquisition,id',
-        'user_id' => 'required|integer|size:10|unqiue:user,id',
+        'family_id' => 'required|unique:family,id',
+        'age_id' => 'required|unique:age,id',
+        'drawer_id' => 'required|unique:drawer,id',
+        'map_id' => 'required|unique:map,id',
+        'acquisition_id' => 'required|unique:acquisition,id',
+        'user_id' => 'required|unique:user,id',
         'taken_at' => 'date_format:yyyy-mm-dd'
     ];
 
