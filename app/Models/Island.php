@@ -9,7 +9,7 @@ class Island extends Model {
     protected $table = "island";
     protected $primaryKey = "id";
 
-    public $incrementing = TRUE;
+    public $incrementing = FALSE;
     public $timestamps = FALSE;
     public $remember = FALSE;
 
@@ -19,6 +19,7 @@ class Island extends Model {
 
     public static function store($data) {
         return Island::create([
+            'id' => $data['id'],
             'name' => ucwords(strtolower($data['name'])),
             'description' => $data['description'],
         ]);

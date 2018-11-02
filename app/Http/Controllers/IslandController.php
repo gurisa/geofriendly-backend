@@ -21,6 +21,7 @@ class IslandController extends Controller {
 
     public function create(Request $request) {
         $this->validate($request, [
+            'id' => 'required|string|min:1|max:20',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
         ]);
@@ -60,7 +61,8 @@ class IslandController extends Controller {
     }
 
     public function update(Request $request, $id) {
-        $this->validate($request, [            
+        $this->validate($request, [
+            'id' => 'required|string|min:1|max:20',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
         ]);
