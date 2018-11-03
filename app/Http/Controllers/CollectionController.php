@@ -30,12 +30,12 @@ class CollectionController extends Controller {
         'description' => 'string|min:4|max:200',
         'photo' => 'string|min:4|max:200',
 
-        'family_id' => 'required|unique:family,id',
-        'age_id' => 'required|unique:age,id',
-        'drawer_id' => 'required|unique:drawer,id',
-        'map_id' => 'required|unique:map,id',
-        'acquisition_id' => 'required|unique:acquisition,id',
-        'user_id' => 'required|unique:user,id',
+        'family_id' => 'required|exists:family,id',
+        'age_id' => 'required|exists:age,id',
+        'drawer_id' => 'required|exists:drawer,id',
+        'map_id' => 'required|exists:map,id',
+        'acquisition_id' => 'required|exists:acquisition,id',
+        'user_id' => 'required|exists:user,id',
         'taken_at' => 'date_format:yyyy-mm-dd'
     ];
 
