@@ -62,8 +62,7 @@ class FamilyController extends Controller {
     }
 
     public function update(Request $request, $id) {
-        $this->validate($request, [            
-            'id' => 'required|string|min:4|max:10',
+        $this->validate($request, [
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
             'classification_id' => 'required|exists:classification,id',

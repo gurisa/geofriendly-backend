@@ -27,7 +27,11 @@ class Drawer extends Model {
 
     public static function change($id, $data) {
         if ($drawer = Drawer::find($id)) {
-            if ($drawer->update(['name' => $data['name'], 'description'=> $data['description'], 'rack_id'=> $data['rack_id']])) {
+            if ($drawer->update([
+                'name' => $data['name'], 
+                'description'=> $data['description'], 
+                'rack_id'=> $data['rack_id']
+            ])) {
                 return $drawer;
             }
             return false;

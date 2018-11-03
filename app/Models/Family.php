@@ -28,7 +28,11 @@ class Family extends Model {
 
     public static function change($id, $data) {
         if ($family = Family::find($id)) {
-            if ($family->update(['name' => $data['name'], 'description'=> $data['description'], 'classification_id'=> $data['classification_id']])) {
+            if ($family->update([
+                'name' => $data['name'], 
+                'description'=> $data['description'], 
+                'classification_id'=> $data['classification_id'],
+            ])) {
                 return $family;
             }
             return false;

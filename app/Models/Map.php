@@ -34,7 +34,8 @@ class Map extends Model {
                 'name' => $data['name'], 
                 'island_id'=> $data['island_id'], 
                 'scale_id'=> $data['scale_id'], 
-                'type_id'=> $data['type_id']])) {
+                'type_id'=> $data['type_id']
+            ])) {
                 return $map;
             }
             return false;
