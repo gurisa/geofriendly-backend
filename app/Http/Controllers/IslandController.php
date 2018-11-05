@@ -21,7 +21,7 @@ class IslandController extends Controller {
 
     public function create(Request $request) {
         $this->validate($request, [
-            'id' => 'required|string|min:1|max:20',
+            'id' => 'required|string|min:1|max:20|unique:island,id',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
         ]);

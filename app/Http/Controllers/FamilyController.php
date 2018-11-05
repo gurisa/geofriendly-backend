@@ -21,7 +21,7 @@ class FamilyController extends Controller {
 
     public function create(Request $request) {
         $this->validate($request, [
-            'id' => 'required|string|min:4|max:10',
+            'id' => 'required|string|min:4|max:10|unique:family,id',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
             'classification_id' => 'required|exists:classification,id',

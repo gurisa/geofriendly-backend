@@ -13,7 +13,7 @@ class Island extends Model {
     public $timestamps = FALSE;
     public $remember = FALSE;
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['id', 'name', 'description'];
     protected $guarded = [];
     protected $hidden = [];
 

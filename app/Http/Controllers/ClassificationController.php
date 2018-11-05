@@ -21,7 +21,7 @@ class ClassificationController extends Controller {
 
     public function create(Request $request) {
         $this->validate($request, [
-            'id' => 'required|string|min:4|max:10',
+            'id' => 'required|string|min:4|max:10|unique:classification,id',
             'name' => 'required|string|min:4|max:50',
             'description' => 'required|string|min:4|max:200',
         ]);
