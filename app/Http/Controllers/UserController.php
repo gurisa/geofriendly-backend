@@ -102,6 +102,7 @@ class UserController extends Controller {
             'name' => 'required|string|min:4|max:50',
             'username' => 'required|string|min:6|max:15|regex:/^[A-Za-z0-9]+$/|unique:user',
             'password' => 'required|string|between:6,20',
+            'authority_id' => 'required|exists:authority,id',
         ]);
 
         $data = $request->all();
