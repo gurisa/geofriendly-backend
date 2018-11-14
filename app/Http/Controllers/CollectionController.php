@@ -36,7 +36,7 @@ class CollectionController extends Controller {
         'map_id' => 'required|exists:map,id',
         'acquisition_id' => 'required|exists:acquisition,id',
         'user_id' => 'required|exists:user,id',
-        'taken_at' => 'date_format:yyyy-mm-dd'
+        'taken_at' => 'date_format:"Y-m-d"'
     ];
 
     public function __construct() {
