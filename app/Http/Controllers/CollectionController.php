@@ -13,7 +13,7 @@ class CollectionController extends Controller {
         'name' => 'required|string|min:4|max:200',
 
         'synonym' => 'string|min:4|max:200',
-        'amount' => 'int|size:10',
+        'amount' => 'int',
         'founder' => 'string|min:4|max:100',
         'collector' => 'string|min:4|max:100',
         'location' => 'string|min:4|max:200',
