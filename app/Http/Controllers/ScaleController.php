@@ -22,7 +22,7 @@ class ScaleController extends Controller {
     public function create(Request $request) {
         $this->validate($request, [
             'name' => 'required|string|min:4|max:50',
-            'description' => 'required|string|min:4|max:200',
+            'description' => 'string|min:4|max:200',
             'amount' => 'required|integer|size:10',
         ]);
 
@@ -63,7 +63,7 @@ class ScaleController extends Controller {
     public function update(Request $request, $id) {
         $this->validate($request, [            
             'name' => 'required|string|min:4|max:50',
-            'description' => 'required|string|min:4|max:200',
+            'description' => 'string|min:4|max:200',
             'amount' => 'required|integer|size:10',
         ]);
         $data = $request->all();

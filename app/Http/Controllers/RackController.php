@@ -22,7 +22,7 @@ class RackController extends Controller {
     public function create(Request $request) {
         $this->validate($request, [
             'name' => 'required|string|min:4|max:50',
-            'description' => 'required|string|min:4|max:200',
+            'description' => 'string|min:4|max:200',
         ]);
 
         $data = $request->all();
@@ -62,7 +62,7 @@ class RackController extends Controller {
     public function update(Request $request, $id) {
         $this->validate($request, [            
             'name' => 'required|string|min:4|max:50',
-            'description' => 'required|string|min:4|max:200',
+            'description' => 'string|min:4|max:200',
         ]);
         $data = $request->all();
         if ($id && $data = Rack::change($id, $data)) {

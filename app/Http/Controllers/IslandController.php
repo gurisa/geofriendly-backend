@@ -23,7 +23,7 @@ class IslandController extends Controller {
         $this->validate($request, [
             'id' => 'required|string|min:1|max:20|unique:island,id',
             'name' => 'required|string|min:4|max:50',
-            'description' => 'required|string|min:4|max:200',
+            'description' => 'string|min:4|max:200',
         ]);
 
         $data = $request->all();
@@ -63,7 +63,7 @@ class IslandController extends Controller {
     public function update(Request $request, $id) {
         $this->validate($request, [
             'name' => 'required|string|min:4|max:50',
-            'description' => 'required|string|min:4|max:200',
+            'description' => 'string|min:4|max:200',
         ]);
         $data = $request->all();
         if ($id && $data = Island::change($id, $data)) {

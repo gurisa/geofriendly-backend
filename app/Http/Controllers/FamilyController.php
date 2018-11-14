@@ -21,9 +21,9 @@ class FamilyController extends Controller {
 
     public function create(Request $request) {
         $this->validate($request, [
-            'id' => 'required|string|min:4|max:10|unique:family,id',
+            'id' => 'required|string|min:1|max:10|unique:family,id',
             'name' => 'required|string|min:4|max:50',
-            'description' => 'required|string|min:4|max:200',
+            'description' => 'string|min:4|max:200',
             'classification_id' => 'required|exists:classification,id',
         ]);
 
@@ -64,7 +64,7 @@ class FamilyController extends Controller {
     public function update(Request $request, $id) {
         $this->validate($request, [
             'name' => 'required|string|min:4|max:50',
-            'description' => 'required|string|min:4|max:200',
+            'description' => 'string|min:4|max:200',
             'classification_id' => 'required|exists:classification,id',
         ]);
         $data = $request->all();

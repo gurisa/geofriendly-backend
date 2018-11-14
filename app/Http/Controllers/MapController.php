@@ -21,7 +21,7 @@ class MapController extends Controller {
 
     public function create(Request $request) {
         $this->validate($request, [
-            'code' => 'required|string|min:4|max:20',
+            'code' => 'required|string|min:1|max:20',
             'name' => 'required|string|min:4|max:50',
             'island_id' => 'required|exists:island,id',
             'scale_id' => 'required|exists:scale,id',
@@ -64,7 +64,7 @@ class MapController extends Controller {
 
     public function update(Request $request, $id) {
         $this->validate($request, [            
-            'code' => 'required|string|min:4|max:20',
+            'code' => 'required|string|min:1|max:20',
             'name' => 'required|string|min:4|max:50',
             'island_id' => 'required|exists:island,id',
             'scale_id' => 'required|exists:scale,id',
