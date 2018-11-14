@@ -23,7 +23,7 @@ class ScaleController extends Controller {
         $this->validate($request, [
             'name' => 'required|string|min:4|max:50',
             'description' => 'string|min:4|max:200',
-            'amount' => 'required|integer|size:10',
+            'amount' => 'required|integer',
         ]);
 
         $data = $request->all();
@@ -64,7 +64,7 @@ class ScaleController extends Controller {
         $this->validate($request, [            
             'name' => 'required|string|min:4|max:50',
             'description' => 'string|min:4|max:200',
-            'amount' => 'required|integer|size:10',
+            'amount' => 'required|integer',
         ]);
         $data = $request->all();
         if ($id && $data = Scale::change($id, $data)) {
