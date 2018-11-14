@@ -90,7 +90,10 @@ class CollectionController extends Controller {
     }
 
     public function update(Request $request, $id) {
-        $this->validate($request, $this->rule);
+        $rule = $this->rule;
+        unset($rule['registration']);
+        unset($rule['inventory']);
+        $this->validate($request, $rule);
         $data = $request->all();
         if ($id && $data = Collection::change($id, $data)) {
             return response()->json([
