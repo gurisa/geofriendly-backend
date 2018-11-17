@@ -35,7 +35,7 @@ class CollectionController extends Controller {
         'drawer_id' => 'required|exists:drawer,id',
         'map_id' => 'required|exists:map,id',
         'acquisition_id' => 'required|exists:acquisition,id',
-        'user_id' => 'required|exists:user,id',
+        'user_id' => 'exists:user,id',
         'taken_at' => 'date_format:"Y-m-d"'
     ];
 
