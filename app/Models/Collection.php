@@ -55,7 +55,7 @@ class Collection extends Model {
             'drawer_id' => $data['drawer_id'], 
             'map_id' => $data['map_id'],
             'acquisition_id' => $data['acquisition_id'], 
-            'user_id' => $data['user_id'],
+            'user_id' => isset($data['user_id']) ? $data['user_id'] : NULL,
             'taken_at' => isset($data['taken_at']) ? $data['taken_at'] : NULL,
         ]);
     }
@@ -90,7 +90,7 @@ class Collection extends Model {
                 'drawer_id' => $data['drawer_id'], 
                 'map_id' => $data['map_id'],
                 'acquisition_id' => $data['acquisition_id'], 
-                'user_id' => $data['user_id'],
+                'user_id' => isset($data['user_id']) ? $data['user_id'] : NULL,
                 'taken_at' => isset($data['taken_at']) ? $data['taken_at'] : NULL,
             ])) {
                 return $collection;
