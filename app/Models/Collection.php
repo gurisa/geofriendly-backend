@@ -56,7 +56,7 @@ class Collection extends Model {
             'map_id' => $data['map_id'],
             'acquisition_id' => $data['acquisition_id'], 
             'user_id' => isset($data['user_id']) ? $data['user_id'] : NULL,
-            'taken_at' => isset($data['taken_at']) ? $data['taken_at'] : NULL,
+            'taken_at' => isset($data['taken_at']) && !empty($data['taken_at']) && $data['taken_at'] !== '0000-00-00' ? $data['taken_at'] : NULL,
         ]);
     }
 
@@ -91,7 +91,7 @@ class Collection extends Model {
                 'map_id' => $data['map_id'],
                 'acquisition_id' => $data['acquisition_id'], 
                 'user_id' => isset($data['user_id']) ? $data['user_id'] : NULL,
-                'taken_at' => isset($data['taken_at']) ? $data['taken_at'] : NULL,
+                'taken_at' => isset($data['taken_at']) && !empty($data['taken_at']) && $data['taken_at'] !== '0000-00-00' ? $data['taken_at'] : NULL,
             ])) {
                 return $collection;
             }
