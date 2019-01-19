@@ -19,7 +19,7 @@ class Classification extends Model {
 
     public static function store($data) {
         return Classification::create([
-            'id' => $data['description'],
+            'id' => $data['id'],
             'name' => ucwords(strtolower($data['name'])),
             'description' => $data['description'],
         ]);
